@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishanvi Anand - Creative Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Pacifico&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #fef3ff 50%, #fdf4ff 100%);
+            color: #1a1a1a;
+            overflow-x: hidden;
+            font-size: 15px;
+        }
+
+        /* Subtle background gradients */
+        .bg-gradient {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .grad1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #ff69b4, #ff1493);
+            top: -200px;
+            right: -100px;
+        }
+
+        .grad2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #ec4899, #db2777);
+            bottom: -150px;
+            left: -150px;
+        }
+
+        .grad3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #f472b6, #ec4899);
+            top: 50%;
+            left: 30%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 245, 247, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 22px;
+            color: #ec4899;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            min-height: auto;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #ec4899;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(38px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .pink-text {
+            color: #ec4899;
+        }
+
+        .cursive {
+            font-family: 'Pacifico', cursive;
+            font-size: 0.85em;
+        }
+
+        .hero-description {
+            font-size: 15px;
+            color: #5a5a5a;
+            line-height: 1.7;
+            max-width: 580px;
+            margin-bottom: 16px;
+        }
+
+        .college-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #fff, #fdf2f8);
+            border: 1.5px solid #fbcfe8;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #831843;
+            margin: 12px 0 28px 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 24px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #ec4899;
+            border: 1.5px solid #fbcfe8;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ec4899;
+            background: #fdf2f8;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 70px 0;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #ec4899;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .skills-box {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(236, 72, 153, 0.08);
+            border: 1px solid rgba(236, 72, 153, 0.1);
+        }
+
+        .skills-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #fdf2f8;
+            color: #831843;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #fbcfe8;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #fce7f3;
+            border-color: #f9a8d4;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 70px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+            border: 1px solid rgba(236, 72, 153, 0.08);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(236, 72, 153, 0.15);
+            border-color: #fbcfe8;
+        }
+
+        .project-emoji {
+            font-size: 32px;
+            margin-bottom: 14px;
+        }
+
+        .project-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .project-desc {
+            color: #5a5a5a;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .tech-badge {
+            background: #fff7ed;
+            color: #9a3412;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 70px 0;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: 0 8px 30px rgba(236, 72, 153, 0.1);
+            border-left: 4px solid #ec4899;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .exp-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .exp-company {
+            font-size: 15px;
+            color: #5a5a5a;
+            font-weight: 500;
+        }
+
+        .exp-date {
+            background: #fef3c7;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-weight: 600;
+            color: #92400e;
+            font-size: 13px;
+        }
+
+        .exp-desc {
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 70px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #fdf2f8, #fae8ff);
+            margin-top: 80px;
+            border-top: 1px solid rgba(236, 72, 153, 0.1);
+        }
+
+        .footer-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(26px, 4vw, 36px);
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .footer-cursive {
+            font-family: 'Pacifico', cursive;
+            color: #ec4899;
+        }
+
+        .footer-subtitle {
+            font-size: 15px;
+            color: #5a5a5a;
+            margin-bottom: 32px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border: 1.5px solid #fbcfe8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ec4899;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #ec4899;
+            color: white;
+            border-color: #ec4899;
+            transform: translateY(-4px);
+        }
+
+        .copyright {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        /* Decorative elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fdf2f8, #fae8ff);
+            opacity: 0.6;
+        }
+
+        .circle-1 {
+            width: 80px;
+            height: 80px;
+            top: 100px;
+            right: 50px;
+        }
+
+        .circle-2 {
+            width: 120px;
+            height: 120px;
+            bottom: 200px;
+            left: 30px;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient grad1"></div>
+    <div class="bg-gradient grad2"></div>
+    <div class="bg-gradient grad3"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Ishanvi</div>
+            <ul class="nav-links">
+                <li><a href="#about">about</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#contact">connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container" style="position: relative;">
+            <div class="deco-circle circle-1"></div>
+            <div class="hero-label">Creative Developer & Problem Solver</div>
+            <h1>
+                Hey, I'm <span class="cursive pink-text">Ishanvi Anand</span><br>
+                I build at the intersection of <span class="pink-text">art & code</span>
+            </h1>
+            <p class="hero-description">
+                A second-year CSE-AI student who believes good tech should feel like magic. 
+                I create things that are both beautiful and functional — analyzing stock trends, 
+                visualizing data structures, and building full-stack experiences. I enjoy 
+                researching on various topics such as cyphers, finance, and even rabbit holes.
+            </p>
+            <div class="college-info">
+                🎓 B.Tech CSE-AI @IGDTUW • CGPA 9.33
+            </div>
+            <div class="college-info">
+                🏫 PCM 12th @HRMS • 95%
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">explore my work</a>
+                <a href="https://github.com/ishanvianand-lol" class="btn btn-secondary" target="_blank">github</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-label">Get to Know Me</div>
+            <h2 class="section-title">A little about me</h2>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I'm driven by curiosity and a knack for problem-solving. Whether it's <span class="highlight">breaking down complex algorithms</span>, 
+                        building interactive web apps, or diving into quantitative finance, I approach every challenge with 
+                        creativity and analytical thinking.
+                    </p>
+                    <p>
+                        Currently exploring <span class="highlight">software engineering, full-stack development, and quant roles.</span> 
+                        When I'm not coding, you'll find me sketching UI designs.
+                    </p>
+                </div>
+
+                <div class="skills-box">
+                    <div class="skills-title">what i work with</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Yfinance</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">OOP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <div class="container" style="position: relative;">
+            <div class="deco-circle circle-2"></div>
+            <div class="section-label">What I've Built</div>
+            <h2 class="section-title">Featured Projects</h2>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-emoji">📈</div>
+                    <h3 class="project-title">Stock Market Analysis Dashboard</h3>
+                    <p class="project-desc">
+                        Interactive dashboard analyzing stock data with technical indicators like moving averages, 
+                        VWAP, RSI, and MACD. Clean visualizations to spot trends.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Matplotlib</span>
+                        <span class="tech-badge">yfinance</span>
+                    </div>
+                    <a href="https://stock-analyser-fundamental.streamlit.app/" class="project-link" target="_blank">
+                        view live →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-emoji">🔓</div>
+                    <h3 class="project-title">Cyphics</h3>
+                    <p class="project-desc">
+                        A lightweight web application that lets users explore and apply various text encryption techniques.
+                        Designed to visualize how different ciphers transform data in real time.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        view live →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-emoji">💼</div>
+                    <h3 class="project-title">Bollinger Bands Portfolio Simulator</h3>
+                    <p class="project-desc">
+                        Rule-based trading simulator using Bollinger Bands on historical data. 
+                        Tracks portfolio performance with buy/sell signals and analytics.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">yfinance</span>
+                        <span class="tech-badge">Pandas</span>
+                    </div>
+                    <a href="https://bollinger-portfolio.streamlit.app/" class="project-link" target="_blank">
+                        view live →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-emoji">🔍</div>
+                    <h3 class="project-title">Data Structures Visualizer</h3>
+                    <p class="project-desc">
+                        Interactive tool demonstrating arrays, stacks, and binary search step-by-step. 
+                        Clear visualizations of algorithm logic for better learning.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">Algorithms</span>
+                    </div>
+                    <a href="https://ds-visualiser-basic.streamlit.app/" class="project-link" target="_blank">
+                        view live →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-emoji">🌐</div>
+                    <h3 class="project-title">Willora - Responsive Website</h3>
+                    <p class="project-desc">
+                        Contributed to front-end development and UI design during my MERN internship. 
+                        Focused on creating a seamless, responsive user experience.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">MERN Stack</span>
+                        <span class="tech-badge">UI/UX</span>
+                    </div>
+                    <a href="https://willora-frontend.onrender.com" class="project-link" target="_blank">
+                        view live →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-emoji">🎨</div>
+                    <h3 class="project-title">[GitHub Project]</h3>
+                    <p class="project-desc">
+                        Placeholder for another project from your GitHub. Could be ML, web app, 
+                        or creative coding experiment!
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Tech 1</span>
+                        <span class="tech-badge">Tech 2</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        view live →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-emoji">✨</div>
+                    <h3 class="project-title">[GitHub Project]</h3>
+                    <p class="project-desc">
+                        Another placeholder for your creative work. Maybe an AI project or 
+                        full-stack application!
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Tech 1</span>
+                        <span class="tech-badge">Tech 2</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        view live →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience-section">
+        <div class="container">
+            <div class="section-label">Experience</div>
+            <h2 class="section-title">Where I've worked</h2>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">MERN Stack Intern</div>
+                        <div class="exp-company">Anweshan Foundation, IGDTUW</div>
+                    </div>
+                    <div class="exp-date">2025</div>
+                </div>
+                <p class="exp-desc">
+                    Worked on Willora, a responsive website focused on seamless UX. 
+                    Contributed to front-end implementation, UI design, and interface improvements. 
+                    Collaborated with the team to deliver a polished product.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2 class="footer-title">Let's create something <span class="footer-cursive">amazing</span> together</h2>
+            <p class="footer-subtitle">Always open to collaborations, internships, and cool projects ✨</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/ishanvianand-lol" class="social-link" target="_blank">GH</a>
+                <a href="https://www.linkedin.com/in/ishanvi-anand-a445a82b3/" class="social-link" target="_blank">in</a>
+                <a href="mailto:ishanvianand06@gmail.com" class="social-link">@</a>
+                <a href="tel:+919315395210" class="social-link">📱</a>
+            </div>
+            
+            <p class="copyright">© 2026 Ishanvi Anand • Made with 💘 and lots of curiosity</p>
+        </div>
+    </footer>
+</body>
+</html>
